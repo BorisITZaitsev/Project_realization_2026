@@ -760,9 +760,10 @@ class MainApp(tk.Tk):
         self.configure(bg=C['bg'])
         self.protocol('WM_DELETE_WINDOW', self._on_close)
 
+        # Статусбар создаётся ПЕРВЫМ — панели вызывают _set_status при инициализации
+        self._build_statusbar()
         self._build_menu()
         self._build_notebook()
-        self._build_statusbar()
 
     def _build_menu(self):
         mb = tk.Menu(self)
